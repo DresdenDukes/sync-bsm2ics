@@ -128,7 +128,7 @@ foreach ($matchdata as $data) {
     }
 }
 echo "got ".sizeof($matchdata)." matches for league, ".sizeof($own_matches)." with given team".PHP_EOL;
-array_pop($own_matches);
+
 $save_in_cal = array();
 foreach ($own_matches as $match) {
     if (isset($calendar_entries[$calid_prefix . $match->id])) {
