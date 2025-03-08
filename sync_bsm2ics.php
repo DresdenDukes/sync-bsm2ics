@@ -120,6 +120,12 @@ curl_close($ch);
 
 $matchdata = json_decode($response);
 
+if (!is_array($matchdata)) {
+    echo "ERROR parsing match data from BSM".PHP_EOL;
+    echo "received data: ".$response.PHP_EOL;
+    exit(1);
+}
+
 //var_dump($matchdata);
 $own_matches = array();
 foreach ($matchdata as $data) {
