@@ -139,9 +139,19 @@ $save_in_cal = array();
 foreach ($own_matches as $match) {
     if (isset($calendar_entries[$calid_prefix . $match->id])) {
         //update entry
-        // TODO compare and update only if different
         $entry = $calendar_entries[$calid_prefix . $match->id];
         unset($calendar_entries[$calid_prefix . $match->id]);
+
+        $street = explode("\n", $entry["location"]);
+        if (
+            $entry["dtstart"] == gmdate("Y\-m\-d\TH\:i\:s\Z", strtotime($match->time)) &&
+            $entry["uid"] == $calid_prefix . $match->id &&
+            $entry["summary"] == $match->home_league_entry->team->name . " - " . $match->away_league_entry->team->name . " (" . $match->league->acronym . ")" &&
+            $street[0] == $match->field->street
+        ) {
+            // cal and BSM data identical, no update needed
+            continue;
+        }
     } else {
         //create new cal entry
         $entry = array();
