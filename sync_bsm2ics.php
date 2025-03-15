@@ -14,11 +14,18 @@ if (isset($argv[2]) && is_numeric($argv[2]) && $argv[2] > 0) {
     exit(1);
 }
 
+$date = new DateTime();
+$date = $date->format("y:m:d h:i:s");
+echo $date . " - Starting BSM2ics Sync for team " . $bsm_teamid . " in league " . $bsm_leaguegroup;
+
 if (isset($argv[3]) && is_numeric($argv[3]) && $argv[3] > 0) {
     $match_duration = $argv[3];
+    echo " (with match duration $match_duration)";
 } else {
     $match_duration = 9000; // 60 * 60 * 2.5 = 2,5h
 }
+echo PHP_EOL;
+
 
 require_once "config.php";
 
