@@ -15,8 +15,8 @@ if (isset($argv[2]) && is_numeric($argv[2]) && $argv[2] > 0) {
 }
 
 $date = new DateTime();
-$date = $date->format("y:m:d h:i:s");
-echo $date . " - Starting BSM2ics Sync for team " . $bsm_teamid . " in league " . $bsm_leaguegroup;
+$date = $date->format("Y-m-d H:i:s");
+echo $date . " (UTC) - Starting BSM2ics Sync for team " . $bsm_teamid . " in league " . $bsm_leaguegroup;
 
 if (isset($argv[3]) && is_numeric($argv[3]) && $argv[3] > 0) {
     $match_duration = $argv[3];
