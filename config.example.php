@@ -10,7 +10,7 @@ $onecal_categories = array(
     5555 => 101, // Team1
     6000 => 102, // Team2
     6042 => 103, // Team3
-    // <leaueid> => <Onecal category id>
+    // <leagueid> => <Onecal category id>
 );
 
 ?>

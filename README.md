@@ -9,5 +9,5 @@ sync BSM (DBV Baseball- und Softball-Manager) matches into a nextcloud calendar 
 ## Usage
 
 1. copy `config.example.php` to `config.php` and replace your nextcloud data
-2. `php sync_bsm2ics.php <leage_group> <team_id> [match_duration_in_seconds]`
+2. `php sync_bsm2ics.php <league_group> <team_id> [match_duration_in_seconds]`
 
