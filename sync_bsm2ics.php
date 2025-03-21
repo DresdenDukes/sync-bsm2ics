@@ -212,6 +212,11 @@ foreach ($save_in_cal as $calmatch) {
     $tend = gmdate("Ymd\THis\Z", strtotime($calmatch['dtend']) + $match_duration);
     $tstamp = gmdate("Ymd\THis\Z");
     $uid = $calmatch['uid'];
+    if (array_key_exists($bsm_leaguegroup, $onecal_categories)) {
+        $x_onecal_categoryid = $onecal_categories[$bsm_leaguegroup];
+    } else {
+        $x_onecal_categoryid = $onecal_default_category;
+    }
     $body = <<<__EOD
     BEGIN:VCALENDAR
     VERSION:2.0
@@ -224,6 +229,7 @@ foreach ($save_in_cal as $calmatch) {
     DESCRIPTION:$description
     LOCATION:$location
     SUMMARY:$summary
+    X-ONECAL-CATEGORYID:$x_onecal_categoryid
     END:VEVENT
     BEGIN:VTIMEZONE
     TZID:Europe/Berlin
