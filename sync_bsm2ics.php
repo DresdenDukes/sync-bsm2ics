@@ -137,7 +137,9 @@ if (!is_array($matchdata)) {
 $own_matches = array();
 foreach ($matchdata as $data) {
     if ($data->home_league_entry->team->id == $bsm_teamid || $data->away_league_entry->team->id == $bsm_teamid) {
-        $own_matches[] = $data;
+        if ($data->state != 'canceled' && $data->state != 'retreat') {
+            $own_matches[] = $data;
+        }
     }
 }
 echo "got ".sizeof($matchdata)." matches for league, ".sizeof($own_matches)." with given team".PHP_EOL;
