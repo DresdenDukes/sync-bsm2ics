@@ -136,7 +136,7 @@ if (!is_array($matchdata)) {
 //var_dump($matchdata);
 $own_matches = array();
 foreach ($matchdata as $data) {
-    if ($data->home_league_entry->team->id == $bsm_teamid || $data->away_league_entry->team->id == $bsm_teamid) {
+    if ((isset($data->home_league_entry->team->id) && $data->home_league_entry->team->id == $bsm_teamid) || (isset($data->away_league_entry->team->id) && $data->away_league_entry->team->id == $bsm_teamid)) {
         if ($data->state != 'canceled' && $data->state != 'retreat') {
             $own_matches[] = $data;
         }
